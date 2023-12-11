@@ -8,11 +8,9 @@ bool compare_uint64(void* a_, void* b_, int size) {
   return a >= b;
 }
 
-
 // Реализовать
 void swap(void* a_, void* b_, int size) {
   for (int i = 0; i < size; ++i) {
-
     char* a = (char*) a_ + i;
     char* b = (char*) b_ + i;
 
@@ -26,7 +24,7 @@ void sort(void* data, int size, int count, bool (*compare)(void*, void*, int)) {
   int swaps;
   do {
     swaps = 0;
-    for (int i = 0; i < size; ++i) {
+    for (int i = 0; i < size - 1; ++i) {
       void* a = (char*) data + (i * size);
       void* b = (char*) data + ((i + 1) * size);
       if (compare(a, b, size)) {
@@ -46,7 +44,6 @@ int main() {
   std::cout << "Initial values: ";
   for (int i = 0; i < count; ++i) {
     std::cout << (int) data[i] << ' ';
-
   }
 
   std::cout << std::endl;
@@ -62,4 +59,3 @@ int main() {
 
   delete[] data;
 }
-
